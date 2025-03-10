@@ -39,7 +39,6 @@ if uploaded_file is not None:
         st.error(f"The required columns {feature_columns} are missing from the uploaded file. Please check your dataset.")
 
 
-=
 import streamlit as st
 import pandas as pd
 import joblib  # If you're using a saved model
@@ -76,6 +75,3 @@ if uploaded_file is not None:
     else:
         st.error("The required columns are missing from the uploaded file. Please check your dataset.")
 
-
-
-c0d0b27 (Saved changes before pulling updates)
