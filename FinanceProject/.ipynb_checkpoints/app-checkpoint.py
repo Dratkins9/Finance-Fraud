@@ -13,8 +13,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # ✅ Fix Hasher Initialization
-hasher = stauth.Hasher(["password123", "userpass"])
-hashed_passwords = hasher.generate()
+hasher = stauth.Hasher()
+hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
 # ✅ Authentication Config
 config = {
