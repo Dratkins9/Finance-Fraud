@@ -75,14 +75,13 @@ config = {
 # Debug: Print the config to verify
 st.write("Debug: Config =", config)
 
-# Initialize Authenticator (Fixed)
+# Initialize Authenticator
 try:
     authenticator = stauth.Authenticate(
         config['credentials'],
         config['cookie']['name'],
         config['cookie']['key'],
         config['cookie']['expiry_days']
-        # Removed pre_authorized parameter as per updated API
     )
     st.write("Debug: Authenticator initialized successfully")
 except Exception as e:
@@ -94,16 +93,9 @@ def login():
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
     
-    # Render login form (for streamlit-authenticator >= 0.3.0)
+    # Render login form without fields parameter to test default behavior
     try:
-        login_result = authenticator.login(
-            fields={
-                'Form name': 'Login',
-                'Username': 'Username',
-                'Password': 'Password',
-                'Login': 'Login'
-            }
-        )
+        login_result = authenticator.login()  # Use default form settings
     except Exception as e:
         st.error(f"❌ Error rendering login form: {e}")
         st.stop()
