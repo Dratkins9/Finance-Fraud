@@ -78,13 +78,25 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days']
 )
 
-# Login Function
+# Login Function (Fixed)
 def login():
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
     
-    # Render login form with explicit keyword arguments
-    name, authentication_status, username = authenticator.login(form_name='Login', location='main')
+    # Render login form with error handling for different versions
+    try:
+        # For newer versions of streamlit-authenticator, use fields parameter
+        name, authentication_status, username = authenticator.login(
+            fields={
+                'Form name': 'Login',
+                'Username': 'Username',
+                'Password': 'Password',
+                'Login': 'Login'
+            }
+        )
+    except TypeError:
+        # Fallback for older versions without form_name or location
+        name, authentication_status, username = authenticator.login()
     
     if authentication_status:
         # Successful login
