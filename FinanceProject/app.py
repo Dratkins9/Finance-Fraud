@@ -1,55 +1,79 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
+from yaml.loader import SafeLoader
 import pandas as pd
 import numpy as np
-from yaml.loader import SafeLoader
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ✅ Load Authentication Configuration
-with open("users.yaml") as file:
-    config = yaml.load(file, Loader=SafeLoader)
+# ✅ Load credentials from a YAML file
+def load_credentials():
+    try:
+        with open("users.yaml") as file:
+            config = yaml.load(file, Loader=SafeLoader)
+        return config
+    except FileNotFoundError:
+        st.error("Error: users.yaml file not found. Please create one.")
+        return None
 
-authenticator = stauth.Authenticate(
-    credentials=config["credentials"],
-    cookie_name="auth_cookie",
-    key="random_secret_key",
-    cookie_expiry_days=30
-)
+# ✅ Initialize Authentication
+config = load_credentials()
+if config:
+    authenticator = stauth.Authenticate(
+        credentials=config['credentials'],
+        cookie_name=config['cookie']['name'],
+        key=config['cookie']['key'],
+        cookie_expiry_days=config['cookie']['expiry_days']
+    )
 
-# ✅ Login Page
+# ✅ Function to Handle Login
 def login():
-    st.title("🔐 Login to Finance Fraud Detector")
-    
-    name, auth_status, username = authenticator.login()
+    """Login Screen"""
+    st.title("Welcome to the Login Screen")
+    st.write("Please enter your username and password below.")
+
+    if config is None:
+        st.error("Authentication system not configured properly.")
+        return
+
+    login_result = authenticator.login()  # Capture result
+
+    if login_result is None:  
+        st.warning("Please enter your username and password")
+        return
+
+    try:
+        name, auth_status, username = login_result  # Unpack only if valid
+    except TypeError:
+        st.error("Login failed. Please try again.")
+        return
 
     if auth_status:
+        st.session_state["username"] = username  # Store username in session
         st.session_state["page"] = "main"
-        st.session_state["username"] = username
-        st.experimental_rerun()
+        st.experimental_rerun()  # Force UI refresh
     elif auth_status is False:
-        st.error("Invalid username/password")
-    elif auth_status is None:
-        st.warning("Please enter your credentials")
+        st.error("Incorrect username or password. Please try again.")
 
-# ✅ Main Fraud Detection Page
+# ✅ Function to Handle Main Application
 def main():
+    """Main Screen after Login"""
+    st.sidebar.write(f"Welcome, *{st.session_state['username']}*!")  
     authenticator.logout("Logout", "sidebar")
-    st.sidebar.write(f"👋 Welcome, **{st.session_state['username']}**!")
-    
-    st.title("📊 Financial Fraud Detection System")
-    
-    uploaded_file = st.file_uploader("📂 Upload a CSV file", type=["csv"])
+
+    st.write("## Upload Your CSV File for Analysis")
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
-        st.write("### 🔍 Preview of Uploaded Data:")
-        st.dataframe(df.head())
+        st.write("### Preview of Uploaded Data:")
+        st.write(df.head())
 
+        # ✅ Fraud detection processing
         if "fraudulent" in df.columns:
-            st.write("### 🚀 Training Fraud Detection Model...")
+            st.write("### Processing Fraud Detection...")
 
             if "timestamp" in df.columns:
                 df["timestamp"] = pd.to_datetime(df["timestamp"])
@@ -84,16 +108,16 @@ def main():
                 accuracy = accuracy_score(y_test, y_pred)
                 classification_rep = classification_report(y_test, y_pred)
 
-                st.write(f"### ✅ Model Accuracy: **{accuracy:.2f}**")
-                st.text("### 📊 Classification Report:")
+                st.write(f"### Model Training Completed! Accuracy: {accuracy:.2f}")
+                st.text("### Classification Report:")
                 st.text(classification_rep)
             else:
                 missing_columns = [col for col in feature_columns if col not in df.columns]
-                st.error(f"⚠ Missing columns: {missing_columns}. Please upload a valid dataset.")
+                st.error(f"Missing columns: {missing_columns}. Please upload a valid dataset.")
     else:
-        st.warning("📌 Please upload a CSV file.")
+        st.warning("Please upload a CSV file to proceed.")
 
-# ✅ Page Routing Logic
+# ✅ Handle Page Navigation
 if "page" not in st.session_state:
     st.session_state["page"] = "login"
 
