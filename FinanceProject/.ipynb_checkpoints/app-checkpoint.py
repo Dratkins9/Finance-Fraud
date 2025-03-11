@@ -52,9 +52,10 @@ def login():
     authentication_status = authenticator.login()
 
     if authentication_status:
+        # ✅ Store the username & change page
         st.session_state["page"] = "main"
-        st.session_state["username"] = authenticator.get_username()
-        st.experimental_rerun()  # Force UI refresh after login
+        st.session_state["username"] = authenticator.username  # FIXED storing username
+        st.experimental_rerun()  # ✅ Force UI refresh
     elif authentication_status is False:
         st.error("Username/password is incorrect")
     elif authentication_status is None:
