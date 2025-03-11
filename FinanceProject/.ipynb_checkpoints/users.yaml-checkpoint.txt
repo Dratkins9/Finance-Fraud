@@ -1,0 +1,10 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@example.com
+      name: Admin User
+      password: "$2b$12$JH0f3J8Bj3aHbHz7gq9m7eXxAZ1X83EozMI7AcFdpZpYuj5DHZX7y"  # Password: adminpass
+    user:
+      email: user@example.com
+      name: Regular User
+      password: "$2b$12$KdQGv7UX3nvg5cKrM3Xee.kOByWSaRDgxEEXjZWj5sJL/5s0wN0zG"  # Password: userpass
