@@ -47,16 +47,19 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days']
 )
 
-# ✅ Login before doing anything else
-authentication_status = authenticator.login()
+# ✅ Place Login Form in Sidebar
+with st.sidebar:
+    name, authentication_status, username = authenticator.login()
 
 # ✅ Authentication Handling
 if authentication_status:
-    name = authenticator.get_username()
     st.sidebar.write(f"Welcome, *{name}*!")
     authenticator.logout("Logout", "sidebar")
-    
-    # ✅ Process CSV file AFTER login
+
+    # ✅ Force UI refresh after login
+    st.experimental_rerun()
+
+    # ✅ File Upload UI
     st.write("## Upload Your CSV File for Analysis")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
