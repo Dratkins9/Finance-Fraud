@@ -3,16 +3,12 @@ import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 import pandas as pd
-import random
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from faker import Faker
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ✅ Fix Hasher Initialization
+# ✅ Hasher Initialization
 hasher = stauth.Hasher()
 hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
@@ -39,7 +35,7 @@ config = {
     }
 }
 
-# ✅ Initialize authenticator
+# ✅ Initialize Authenticator
 authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
@@ -47,23 +43,30 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days']
 )
 
-# ✅ Place Login Form in Sidebar
-with st.sidebar:
-    authentication_status = authenticator.login()
+# ✅ Function to Handle Login
+def login():
+    """Login Screen"""
+    st.write("### Welcome to the Login Screen")
+    st.write("Please enter your username and password below.")
 
-# ✅ Authentication Handling
-if authentication_status:
-    st.sidebar.write(f"Welcome!")
+    # Streamlit Authenticator login
+    name, authentication_status, username = authenticator.login()
+
+    if authentication_status:
+        st.session_state["page"] = "main"
+        st.session_state["username"] = username
+        st.experimental_rerun()  # Force UI refresh after login
+    elif authentication_status is False:
+        st.error("Username/password is incorrect")
+    elif authentication_status is None:
+        st.warning("Please enter your username and password")
+
+# ✅ Function to Handle Main Application
+def main():
+    """Main Screen after Login"""
+    st.sidebar.write(f"Welcome, *{st.session_state['username']}*!")  
     authenticator.logout("Logout", "sidebar")
 
-elif authentication_status is False:
-    st.error("Username/password is incorrect")
-elif authentication_status is None:
-    st.warning("Please enter your username and password")
-
-# ✅ Show File Upload ONLY if Logged In
-if authentication_status:
-    # ✅ File Upload UI
     st.write("## Upload Your CSV File for Analysis")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
@@ -72,7 +75,7 @@ if authentication_status:
         st.write("### Preview of Uploaded Data:")
         st.write(df.head())
 
-        # ✅ Fraud detection if CSV is valid
+        # ✅ Fraud detection processing
         if "fraudulent" in df.columns:
             st.write("### Processing Fraud Detection...")
 
@@ -118,3 +121,11 @@ if authentication_status:
     else:
         st.warning("Please upload a CSV file to proceed.")
 
+# ✅ Handle Page Navigation
+if "page" not in st.session_state:
+    st.session_state["page"] = "login"
+
+if st.session_state["page"] == "login":
+    login()
+elif st.session_state["page"] == "main":
+    main()
