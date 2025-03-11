@@ -43,8 +43,8 @@ df.drop(columns=["timestamp"], inplace=True)
 df.to_csv("fake_transactions.csv", index=False)
 
 # Hasher Initialization
-hasher = stauth.Hasher(['password123', 'userpass'])  # Hash passwords in bulk
-hashed_passwords = hasher.hashes
+hasher = stauth.Hasher()
+hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
 # Authentication Config (Updated)
 config = {
