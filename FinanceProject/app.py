@@ -42,11 +42,11 @@ df = pd.read_csv("fake_transactions.csv")
 df.columns = df.columns.str.strip().str.lower()
 
 st.title("Finance Fraud Detection")
-uploaded_file = st.file_uploader("Upload Your CSV File", type=["csv"])
+uploaded_file = st.file_uploader("Upload CSV File", type=["csv"])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
-    st.write("Preview of Uploaded Data:")
+    st.write("Data Preview:")
     st.write(df.head())
 
     if "fraudulent" in df.columns:
@@ -89,4 +89,4 @@ if uploaded_file:
             missing_columns = [col for col in feature_columns if col not in df.columns]
             st.error(f"Missing columns: {missing_columns}. Please upload a valid dataset.")
 else:
-    st.warning("Please upload a CSV file to proceed.")
+    st.warning("Input CSV File.")
