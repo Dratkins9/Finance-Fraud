@@ -83,20 +83,24 @@ def login():
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
     
-    # Render login form with error handling for different versions
-    try:
-        # For newer versions of streamlit-authenticator, use fields parameter
-        name, authentication_status, username = authenticator.login(
-            fields={
-                'Form name': 'Login',
-                'Username': 'Username',
-                'Password': 'Password',
-                'Login': 'Login'
-            }
-        )
-    except TypeError:
-        # Fallback for older versions without form_name or location
-        name, authentication_status, username = authenticator.login()
+    # Render login form (for streamlit-authenticator >= 0.3.0)
+    # Use the fields parameter to customize the form
+    login_result = authenticator.login(
+        fields={
+            'Form name': 'Login',
+            'Username': 'Username',
+            'Password': 'Password',
+            'Login': 'Login'
+        }
+    )
+    
+    # Debug: Check the return value of authenticator.login()
+    if login_result is None:
+        st.error("❌ Login form failed to render. Please check your streamlit-authenticator version and configuration.")
+        return
+    
+    # Unpack the result
+    name, authentication_status, username = login_result
     
     if authentication_status:
         # Successful login
