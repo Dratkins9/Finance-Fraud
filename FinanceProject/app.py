@@ -9,8 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # ✅ Hasher Initialization
-hasher = stauth.Hasher()
-hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
+hasher = stauth.Hasher(["password123", "userpass"])
+hashed_passwords = hasher.generate()
 
 # ✅ Authentication Config
 config = {
@@ -37,10 +37,10 @@ config = {
 
 # ✅ Initialize Authenticator
 authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days']
+    credentials=config['credentials'],
+    cookie_name=config['cookie']['name'],
+    key=config['cookie']['key'],
+    cookie_expiry_days=config['cookie']['expiry_days']
 )
 
 # ✅ Function to Handle Login
@@ -49,12 +49,11 @@ def login():
     st.write("### Welcome to the Login Screen")
     st.write("Please enter your username and password below.")
 
-    # Streamlit Authenticator login
-    name, authentication_status, username = authenticator.login()
+    authentication_status = authenticator.login()
 
     if authentication_status:
         st.session_state["page"] = "main"
-        st.session_state["username"] = username
+        st.session_state["username"] = authenticator.get_username()
         st.experimental_rerun()  # Force UI refresh after login
     elif authentication_status is False:
         st.error("Username/password is incorrect")
