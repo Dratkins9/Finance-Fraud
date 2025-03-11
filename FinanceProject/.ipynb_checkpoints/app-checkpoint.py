@@ -44,7 +44,7 @@ df.to_csv("fake_transactions.csv", index=False)
 
 # Hasher Initialization
 hasher = stauth.Hasher()
-hashed_passwords = [hasher.hash('password123'), hasher.hash('userpass')]
+hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
 # Authentication Config
 config = {
@@ -83,8 +83,8 @@ def login():
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
     
-    # Render login form and get authentication status
-    name, authentication_status, username = authenticator.login('Login', 'main')
+    # Render login form with explicit keyword arguments
+    name, authentication_status, username = authenticator.login(form_name='Login', location='main')
     
     if authentication_status:
         # Successful login
