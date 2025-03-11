@@ -29,20 +29,21 @@ for _ in range(num_transactions):
     }
     data.append(transaction)
 
-df = pd.DataFrame(data)
+# ✅ Convert to DataFrame
+df_synthetic = pd.DataFrame(data)
 
-# ✅ Feature Engineering
-df["timestamp"] = pd.to_datetime(df["timestamp"])
-df["year"] = df["timestamp"].dt.year
-df["month"] = df["timestamp"].dt.month
-df["day"] = df["timestamp"].dt.day
-df["hour"] = df["timestamp"].dt.hour
-df["minute"] = df["timestamp"].dt.minute
-df["second"] = df["timestamp"].dt.second
-df["day_of_week"] = df["timestamp"].dt.weekday
-df["is_weekend"] = df["day_of_week"].apply(lambda x: 1 if x >= 5 else 0)
+# ✅ Feature Engineering for Synthetic Data
+df_synthetic["timestamp"] = pd.to_datetime(df_synthetic["timestamp"])
+df_synthetic["year"] = df_synthetic["timestamp"].dt.year
+df_synthetic["month"] = df_synthetic["timestamp"].dt.month
+df_synthetic["day"] = df_synthetic["timestamp"].dt.day
+df_synthetic["hour"] = df_synthetic["timestamp"].dt.hour
+df_synthetic["minute"] = df_synthetic["timestamp"].dt.minute
+df_synthetic["second"] = df_synthetic["timestamp"].dt.second
+df_synthetic["day_of_week"] = df_synthetic["timestamp"].dt.weekday
+df_synthetic["is_weekend"] = df_synthetic["day_of_week"].apply(lambda x: 1 if x >= 5 else 0)
 
-df.drop(columns=["timestamp"], inplace=True)
+df_synthetic.drop(columns=["timestamp"], inplace=True)
 
 # ✅ Hasher Initialization
 hasher = stauth.Hasher()
@@ -102,11 +103,33 @@ def main():
     st.sidebar.write(f"Welcome, *{st.session_state['username']}*!")  
     authenticator.logout("Logout", "sidebar")
 
-    st.write("## Fraud Detection with Synthetic Data")
-    
-    st.write("### Preview of First 5 Transactions:")
+    st.write("## Upload Your CSV File for Analysis")
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+
+    # ✅ Load CSV or Use Synthetic Data
+    if uploaded_file:
+        df = pd.read_csv(uploaded_file)
+        st.write("### Preview of Uploaded Data:")
+    else:
+        df = df_synthetic
+        st.write("### Using Synthetic Data (No File Uploaded)")
+
     st.write(df.head())
 
+    # ✅ Feature Engineering (For CSV Data)
+    if "timestamp" in df.columns:
+        df["timestamp"] = pd.to_datetime(df["timestamp"])
+        df["year"] = df["timestamp"].dt.year
+        df["month"] = df["timestamp"].dt.month
+        df["day"] = df["timestamp"].dt.day
+        df["hour"] = df["timestamp"].dt.hour
+        df["minute"] = df["timestamp"].dt.minute
+        df["second"] = df["timestamp"].dt.second
+        df["day_of_week"] = df["timestamp"].dt.weekday
+        df["is_weekend"] = df["day_of_week"].apply(lambda x: 1 if x >= 5 else 0)
+        df.drop(columns=["timestamp"], inplace=True)
+
+    # ✅ Fraud detection processing
     feature_columns = ["amount", "account_balance", "year", "month", "day", "hour", "minute", "second", "day_of_week", "is_weekend"]
     if "transaction_type" in df.columns:
         feature_columns.append("transaction_type")
@@ -133,7 +156,7 @@ def main():
         st.text(classification_rep)
     else:
         missing_columns = [col for col in feature_columns if col not in df.columns]
-        st.error(f"Missing columns: {missing_columns}. Please check the dataset.")
+        st.error(f"Missing columns: {missing_columns}. Please upload a valid dataset.")
 
 # ✅ Handle Page Navigation
 if "page" not in st.session_state:
