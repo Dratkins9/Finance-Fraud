@@ -46,7 +46,7 @@ df.to_csv("fake_transactions.csv", index=False)
 hasher = stauth.Hasher()
 hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
-# Authentication Config (Updated)
+# Authentication Config
 config = {
     'credentials': {
         'usernames': {
@@ -67,13 +67,10 @@ config = {
         'key': 'random_secret_key',
         'name': 'auth_cookie'
     },
-    'pre-authorized': {  # Note: This is not passed to Authenticate, but kept for register_user
+    'pre-authorized': {  # Note: This is not passed to Authenticate, but kept for potential register_user use
         'emails': []
     }
 }
-
-# Debug: Print the config to verify
-st.write("Debug: Config =", config)
 
 # Initialize Authenticator
 try:
@@ -83,15 +80,18 @@ try:
         config['cookie']['key'],
         config['cookie']['expiry_days']
     )
-    st.write("Debug: Authenticator initialized successfully")
 except Exception as e:
     st.error(f"❌ Error initializing authenticator: {e}")
     st.stop()
 
-# Login Function (Fixed)
+# Login Function (Updated)
 def login():
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
+    
+    # Debug: Display config and initialization status within the login page
+    st.write("Debug: Config =", config)
+    st.write("Debug: Authenticator initialized successfully")
     
     # Render login form without fields parameter to test default behavior
     try:
