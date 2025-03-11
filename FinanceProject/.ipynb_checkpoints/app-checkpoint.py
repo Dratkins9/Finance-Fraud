@@ -43,10 +43,10 @@ df.drop(columns=["timestamp"], inplace=True)
 df.to_csv("fake_transactions.csv", index=False)
 
 # Hasher Initialization
-hasher = stauth.Hasher()
-hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
+hasher = stauth.Hasher(['password123', 'userpass'])  # Hash passwords in bulk
+hashed_passwords = hasher.hashes
 
-# Authentication Config
+# Authentication Config (Updated)
 config = {
     'credentials': {
         'usernames': {
@@ -67,16 +67,26 @@ config = {
         'key': 'random_secret_key',
         'name': 'auth_cookie'
     },
-    'preauthorized': None
+    'preauthorized': {
+        'emails': []  # Empty list instead of None
+    }
 }
 
+# Debug: Print the config to verify
+st.write("Debug: Config =", config)
+
 # Initialize Authenticator
-authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days']
-)
+try:
+    authenticator = stauth.Authenticate(
+        config['credentials'],
+        config['cookie']['name'],
+        config['cookie']['key'],
+        config['cookie']['expiry_days'],
+        config['preauthorized']
+    )
+    st.write("Debug: Authenticator initialized successfully")
+except Exception as e:
+    st.error(f"❌ Error initializing authenticator: {e}")
 
 # Login Function (Fixed)
 def login():
@@ -84,7 +94,6 @@ def login():
     st.write("Please enter your username and password.")
     
     # Render login form (for streamlit-authenticator >= 0.3.0)
-    # Use the fields parameter to customize the form
     login_result = authenticator.login(
         fields={
             'Form name': 'Login',
@@ -95,6 +104,8 @@ def login():
     )
     
     # Debug: Check the return value of authenticator.login()
+    st.write("Debug: login_result =", login_result)
+    
     if login_result is None:
         st.error("❌ Login form failed to render. Please check your streamlit-authenticator version and configuration.")
         return
