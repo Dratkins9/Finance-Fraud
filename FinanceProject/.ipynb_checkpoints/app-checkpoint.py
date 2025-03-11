@@ -9,8 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # 🔹 Fake Authentication Data (Replace with a more secure solution if needed)
-hasher = stauth.Hasher(["password123", "userpass"])
-hashed_passwords = hasher.generate()
+hasher = stauth.Hasher()
+hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
 config = {
     'credentials': {
