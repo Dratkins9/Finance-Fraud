@@ -13,8 +13,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # ✅ Corrected password hashing
 passwords = ["password123", "userpass"]
-hasher = stauth.Hasher(passwords)
-hashed_passwords = hasher.generate()
+hashed_passwords = [stauth.Hasher([pwd]).generate()[0] for pwd in passwords]  # ✅ Hash passwords individually
 
 # ✅ Authentication Configuration
 config = {
@@ -23,12 +22,12 @@ config = {
             'admin': {
                 'email': 'admin@example.com',
                 'name': 'Admin',
-                'password': hashed_passwords[0]  # ✅ Correctly assigning hashed passwords
+                'password': hashed_passwords[0]  # ✅ Assign hashed password
             },
             'user': {
                 'email': 'user@example.com',
                 'name': 'User',
-                'password': hashed_passwords[1]  # ✅ Correctly assigning hashed passwords
+                'password': hashed_passwords[1]  # ✅ Assign hashed password
             }
         }
     },
