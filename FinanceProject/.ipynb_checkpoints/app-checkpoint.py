@@ -11,9 +11,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ✅ Properly hash passwords
-hasher = stauth.Hasher(["password123", "userpass"])
-hashed_passwords = hasher.generate()
+# ✅ Corrected password hashing
+passwords = ["password123", "userpass"]
+hashed_passwords = stauth.Hasher(passwords).generate()
 
 # ✅ Authentication Configuration
 config = {
@@ -22,12 +22,12 @@ config = {
             'admin': {
                 'email': 'admin@example.com',
                 'name': 'Admin',
-                'password': hashed_passwords[0]
+                'password': hashed_passwords[0]  # ✅ Correctly assigning hashed passwords
             },
             'user': {
                 'email': 'user@example.com',
                 'name': 'User',
-                'password': hashed_passwords[1]
+                'password': hashed_passwords[1]  # ✅ Correctly assigning hashed passwords
             }
         }
     },
@@ -53,7 +53,7 @@ if authentication_status:
     st.sidebar.write(f"Welcome, *{name}*!")
     authenticator.logout("Logout", "sidebar")
 
-    # ✅ Request file upload only after login
+    # ✅ File Upload after Login
     uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
     if uploaded_file is not None:
@@ -109,4 +109,5 @@ if authentication_status:
 
 else:
     st.warning("Please log in to access the system.")
+
 
