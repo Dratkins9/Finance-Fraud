@@ -1,101 +1,101 @@
-transaction_id,user_id,amount,transaction_type,location,account_balance,fraudulent,year,month,day,hour,minute,second,weekend
-e28b00f7-9a5b-4b70-9c5e-9d52af7ade53,1918,3865.72,Bill Payment,South Joseph,18008.4,0,2016,1,6,3,51,11,1
-aa7b1943-045c-41be-b31d-644f50644ddd,1338,2169.66,Bank Transaction,North Sherryborough,12014.79,1,2011,7,3,12,46,6,0
-f6076f73-111a-4f53-a5b4-ed89d9506a98,1272,2866.16,Bill Payment,Lake Jeffreyville,7747.28,1,2012,7,2,15,12,26,0
-bd547c08-21f1-4f0b-9da3-42a2b92f9721,1341,1030.26,Bill Payment,East Charles,14899.15,0,1978,4,2,22,47,28,0
-ac130dc1-ed5f-426e-a598-6fe4da5aeb50,1831,2847.46,Bank Transaction,New Brooke,2877.86,1,2005,5,5,21,45,36,1
-b7c7113a-ef73-4dd9-8faa-b9ef9c046c38,1665,4092.59,Online Transaction,North Kathleen,14014.21,0,1989,10,6,7,49,7,1
-da603b07-f606-4ae3-a644-c5fefab0214b,2028,1741.26,Online Transaction,Port Moniqueburgh,13648.68,1,1978,11,0,22,51,21,0
-ed108ced-8c3e-4415-b77c-11c367514dfc,1274,2188.45,Online Transaction,North Oscarview,10928.71,1,2016,9,4,16,45,11,0
-01a56b7d-ec67-4358-b838-bfa83262c93d,1748,3112.75,Bank Transaction,Port Karaton,2484.94,0,2012,3,2,17,2,53,0
-a15873da-9098-4374-917f-2978ca1bcb2b,1828,858.39,Bank Transaction,Dustinfurt,11801.29,1,2018,8,4,2,17,34,0
-e7752b48-6b32-4093-8f5b-48fa4e50600e,1891,4838.63,Online Transaction,Burnettfort,14389.72,1,2020,2,5,17,3,46,1
-9d156f0f-65e1-41e9-b23b-59281a174780,1399,3565.77,Online Transaction,Justinmouth,861.44,0,2015,4,2,3,59,35,0
-6c64739e-7d20-47bc-ae7c-73cb37fb9536,1615,2946.47,Online Transaction,East Christopher,14653.19,0,2003,7,5,6,22,58,1
-4cac01e8-f7e2-42ed-88c8-6d86c119485c,2417,1660.8,Online Transaction,North Travis,7675.47,1,1978,4,6,22,58,57,1
-fb7e19f0-824c-4fc2-8334-4ebbe4bacb47,1016,1235.15,Bill Payment,South Benjamin,19870.25,0,2019,7,0,5,32,7,0
-167f113d-42d0-4c98-b968-98567f9e44ca,1642,28.71,Bank Transaction,Debrafort,12185.38,1,1972,9,3,6,17,58,0
-8abcf0cb-7eee-408c-90cc-0086a0b981b2,1272,4758.96,Bank Transaction,Ruizburgh,19228.6,0,1994,2,3,9,14,19,0
-0b11fde2-097d-4f4c-b3cf-5994c1efa484,1577,4507.25,Bank Transaction,Caitlinmouth,7603.77,1,2023,1,4,8,26,52,0
-a04cfa7e-5c7a-469c-8501-391170e55dbf,1374,2032.12,Online Transaction,New Tiffany,9509.15,0,2001,6,4,17,27,1,0
-fc14576a-b944-40e8-8e3e-d4aeadffae65,1605,749.4,Online Transaction,Jamestown,15564.81,1,1997,3,5,9,37,36,1
-3f591441-0fe2-4431-8838-152cb2a1f977,1080,1468.89,Bill Payment,East Jessehaven,16629.13,0,1997,12,1,3,0,25,0
-5ffcccda-b412-43a2-b813-cc7bd038c22c,1206,4241.42,Bank Transaction,North Becky,8658.69,1,2005,11,0,6,15,27,0
-11da20b1-7db0-4b48-82d6-02d42bdbec71,1223,4941.31,ATM Transaction,South Tamarashire,794.15,1,2018,5,6,6,21,44,1
-3276b8dc-2564-4728-87b5-cc8a6766e8c9,1692,234.48,Online Transaction,South Michaelberg,2384.56,0,2024,12,1,5,31,17,0
-e2a52016-43ae-4ea5-9ff9-b2a3f89607e4,1783,656.12,Online Transaction,Lake Jessica,10536.07,0,1988,6,5,17,13,33,1
-e0585e2f-1314-4a9a-ae0e-72e5ada46fb4,1844,749.54,Online Transaction,South Bobbymouth,8296.71,0,2017,4,2,2,47,48,0
-c9ceae63-479a-4181-b160-4881225d09af,2204,1294.1,Bill Payment,Johnbury,9640.95,0,2007,11,2,3,3,35,0
-93f3bf0d-4e16-46b3-97b7-77066d68ade4,1058,4590.5,Online Transaction,Hunterside,10031.61,0,1992,11,3,22,28,27,0
-084c3e40-6480-4d6c-90f8-193188662deb,1944,4926.55,Online Transaction,Terriberg,1559.38,0,2011,10,0,10,37,59,0
-fcf47004-3542-4d2c-906d-37a79660520e,2043,2883.9,Online Transaction,Wilsonbury,8148.5,1,1971,10,6,23,29,35,1
-505dbb11-7f1d-4569-8271-89559e5d91f8,2446,2669.26,ATM Transaction,South Derekborough,19953.03,0,2019,3,5,1,15,13,1
-8c655200-15d6-460a-b24e-f3d7cf562e02,1700,4209.15,Bank Transaction,Murphyville,13559.93,1,2001,8,2,7,42,18,0
-bee89a76-b30d-4675-8005-0d356c4f6abc,2224,995.23,Online Transaction,Lake Toddstad,10096.68,1,1993,8,6,6,37,23,1
-81191701-41f1-4958-861a-630ab0f2e3d1,1775,3789.94,Bill Payment,South Craigbury,7063.46,1,1975,8,4,9,4,53,0
-3a4f33e8-a35a-461c-b92e-519d3ec660b2,1392,563.57,Bill Payment,Villanuevatown,4669.05,0,1971,10,4,20,37,48,0
-c444f176-f835-44e2-b64e-4f34254d4efb,1609,4403.36,ATM Transaction,New Nancy,1685.2,1,1990,11,3,15,32,52,0
-d3be9e5f-025a-4054-ae9b-8f04a13262ac,1204,4057.66,ATM Transaction,Henryhaven,2581.43,0,1976,5,6,6,23,59,1
-3c69e655-0266-495b-8dee-0fda689b933f,1565,4437.98,Online Transaction,Kimberlyport,3858.05,0,2024,5,0,19,14,5,0
-59c8b3b8-ac89-4b58-850d-86f0db97c44c,1715,3469.51,Bank Transaction,Dustinport,17737.73,0,1978,5,6,6,21,36,1
-db737f33-d208-44c7-b939-bf85815304bd,1183,3227.43,Bank Transaction,Juliefurt,7483.79,1,1987,2,2,16,57,59,0
-b762ae0e-8089-4eb0-b4cd-104a49c59e3f,1317,3629.19,ATM Transaction,West Georgemouth,2150.68,0,1974,2,2,6,30,59,0
-0bcd8a9d-b8b0-4234-8e6a-3a1541b2270c,2260,2682.35,Bank Transaction,Port Laura,16723.26,1,1973,12,2,16,9,28,0
-1a7a9a2f-560b-4db8-bba7-94a3bb0dcf6c,1289,3124.01,Online Transaction,Bergerland,11176.39,0,2000,12,5,9,28,13,1
-608107e8-97ea-4f67-834a-f20081c21ccb,1936,4542.96,ATM Transaction,North Erin,8154.27,0,1999,2,5,4,12,8,1
-6a1554ca-27e6-45d7-98fe-85990eb54839,2058,4038.7,ATM Transaction,Port Barbara,8515.85,0,1996,3,5,20,1,2,1
-1906f90b-814a-4d1d-a65a-cb6d843f5e2f,2290,3951.38,Bill Payment,Wangberg,16014.91,0,2010,2,2,13,22,33,0
-a4f18f89-ae90-46c7-86ea-65b6fbb381ed,1361,982.92,Bank Transaction,Jessicaburgh,5188.47,1,2014,12,6,4,8,25,1
-739acd41-b7f8-45ca-98c1-7bc4b50e7ef0,2135,2750.91,Bank Transaction,North Donaldtown,5367.47,1,1996,9,0,0,8,34,0
-3f04ad9c-3463-48a3-a1e1-2f294f7c28d5,1304,2157.2,Bill Payment,Marymouth,12147.81,1,1995,8,6,1,6,23,1
-5517aa92-c852-41ef-bb5a-8a2cb539ef50,2431,684.81,Online Transaction,Glendahaven,5452.81,0,1993,8,0,2,53,23,0
-3eb737c6-0013-485c-b414-4b0fb4f6aae0,1707,2452.23,Bank Transaction,Griffinhaven,19517.76,1,2007,10,3,1,34,16,0
-a361589a-975f-402b-9e16-f8902f2a15d7,1047,3916.55,Bill Payment,Melissaville,2968.67,0,2022,7,0,3,9,9,0
-bec036aa-1c4d-49d1-9b15-ee68d620036d,2425,4353.37,Bill Payment,Port Alejandrostad,3637.08,1,2021,6,3,0,16,46,0
-7396798c-fb7d-4be4-9465-ae7e4fad4874,1312,4243.71,Online Transaction,Hansonview,3582.88,1,1970,12,4,4,2,51,0
-48ad8174-57cf-453d-8901-21530b412af9,1538,1053.5,Bank Transaction,South Rebecca,9607.82,0,1984,6,5,22,35,51,1
-dc4a0e42-f003-45a4-b275-e0ae1b0be5ff,1836,146.23,ATM Transaction,West Danielleside,5403.68,1,1993,7,4,5,9,49,0
-d586ddbe-5391-473e-aa97-942ad7d6281b,1662,3757.54,ATM Transaction,Michaelchester,11166.37,0,1992,12,6,3,14,41,1
-6703a4fe-553d-41ad-8a07-5442ebcce203,1042,1861.35,Bill Payment,Victoriafurt,14583.33,0,2013,4,6,3,45,23,1
-1842b6c4-583b-44b2-b9cb-37801d2b73cc,2071,4758.69,Bill Payment,Duncanland,10839.89,1,1980,5,4,12,7,49,0
-11139465-b454-41b7-9ef5-0b01c2a28e94,1047,920.83,Online Transaction,Lake Michaelmouth,6854.82,0,1992,7,4,1,54,55,0
-712508ba-cde4-4ba1-b9a9-64bf20149670,1885,3851.88,Online Transaction,Chavezport,12447.02,1,2010,8,4,5,35,43,0
-cb6488e3-4803-4a0c-bb64-e5d15b24eae7,1094,4641.02,ATM Transaction,Mackenziebury,2223.4,0,1993,3,0,1,59,12,0
-30be4a2c-7100-4c7f-9dac-3f39e3e715a4,1362,304.7,Online Transaction,Bonniefort,6049.84,0,2021,1,6,20,24,37,1
-674d8339-b19c-4709-8886-30d5a520a188,1791,2482.0,ATM Transaction,Amandaborough,14918.35,1,1974,5,3,8,40,54,0
-135797bb-2623-4dac-b27d-13054ce3adc6,2447,165.06,Bank Transaction,Port Stevenmouth,13749.34,1,2011,11,1,9,26,52,0
-a8ed0c7f-2804-4828-9bb2-019ea99bd529,1899,667.92,Bill Payment,Vincentburgh,7475.81,0,2007,10,6,16,15,6,1
-d8642dfd-df7e-481f-b6ed-4b614fd932cc,2245,4417.36,ATM Transaction,Karenborough,6318.09,0,1985,5,3,17,10,31,0
-41131db4-180b-427e-9014-53b8a9f54217,1253,436.26,Online Transaction,Wrighthaven,4705.59,0,2007,9,1,5,4,53,0
-386bfe41-9a4d-478f-95c6-d4ac3cbcfceb,1057,1338.88,ATM Transaction,Buckfort,14960.5,0,1993,2,5,1,13,19,1
-fb25e84e-03b4-4a38-a01b-3a88f574fb28,2318,1494.72,Bill Payment,Donnahaven,3732.98,1,2003,5,0,22,27,9,0
-f3909693-ae93-405e-b069-0b6f99bfd688,1536,1301.41,Bank Transaction,Wendyside,8836.92,1,1977,12,2,8,14,4,0
-cdea8d4c-ba48-466c-b390-59dfdaf6c121,1612,3454.49,Bill Payment,Meyerschester,17060.8,1,2023,6,1,3,9,59,0
-6976ae9c-9f06-4d34-aaa8-73dcb0c322c5,2059,1038.57,Online Transaction,Austinview,1867.6,0,1978,9,4,21,28,19,0
-116c0187-d571-4f30-b67b-858b20fbf37b,1048,3197.65,Bill Payment,Kimberlyborough,14246.79,1,1980,10,6,13,53,14,1
-16d89a53-a039-45f9-8728-b203ec5a7e0b,1266,4704.25,ATM Transaction,New Michele,16008.16,0,1996,5,2,0,43,57,0
-a19ad9fe-db4f-4221-96f8-282dac7bec50,2395,3488.03,ATM Transaction,Delgadohaven,2614.85,1,2003,1,4,14,16,41,0
-80c95f1a-2170-498c-9ebb-2b7049df0483,2080,4231.11,Online Transaction,West Robert,8134.14,1,2021,3,0,18,17,42,0
-ec128dab-7e69-4042-90ce-1d1c68e68566,1532,2499.71,Bank Transaction,East Christopher,12976.48,0,2015,6,2,21,51,10,0
-c7fecc24-e965-4229-abac-b90e8587ebd2,1159,4090.63,Online Transaction,Ramosshire,1903.45,0,1980,7,4,22,41,24,0
-010513aa-0877-4626-8816-24dc5e0e2863,2478,4492.27,ATM Transaction,South Aaron,12837.0,1,2021,7,5,15,5,38,1
-04445c55-dc3a-44eb-b707-97d3df4fe7d2,2069,1548.52,Online Transaction,Walkerport,16243.96,0,1978,3,0,3,12,57,0
-3f7ce3fa-dfa4-42e1-815f-0cd373047016,1599,138.43,Online Transaction,Craigview,15898.37,0,1973,8,0,21,59,29,0
-933d9cb7-3c9a-4372-8d69-4c3b15a8177d,2220,3927.57,Online Transaction,Brandonton,19539.46,0,2011,11,6,14,56,32,1
-418c2f49-fef5-4f9b-9570-ace5eecd239d,1988,43.16,Online Transaction,Johnsonside,5067.45,1,2003,2,6,9,59,53,1
-51043146-0107-482b-be03-6a9bed610079,2250,3800.85,Bill Payment,Port Calebton,1296.38,0,2001,7,4,0,18,28,0
-38fe1b4c-7a32-4c4a-8246-c5c54894514e,1973,2940.98,ATM Transaction,Pennyside,11128.57,0,1979,9,1,7,23,38,0
-f1374f83-1c1d-49a1-8c0a-f5027841a8b5,2326,4081.61,ATM Transaction,Rebeccaborough,8134.69,1,2009,12,6,16,48,30,1
-e17185d8-efb9-4a0c-b996-8ebd8a9a4a79,2048,2443.54,Bill Payment,North Robinmouth,1354.32,1,1993,9,5,0,30,25,1
-0abff12b-8791-4f3c-9bac-684f2b60b704,1990,3175.91,Online Transaction,Williamview,1640.46,0,1993,8,4,21,34,56,0
-4e5e7847-4e77-4a75-88d2-0c1c112f5e2b,2057,2953.09,Bank Transaction,South John,17070.15,0,1983,10,4,14,27,20,0
-7a8b74cd-13e8-49e7-83e5-8c52fc7a634b,2168,4190.16,Online Transaction,Lake Joshuaton,3012.91,1,1985,1,5,16,54,21,1
-e446ebb7-72e4-4334-ac68-e188edc62241,2449,1233.98,Online Transaction,Aprilbury,19510.44,1,2001,4,6,19,35,1,1
-89be3201-d076-4619-8baf-86badfe3ee45,1703,3193.82,ATM Transaction,Kelseyland,11134.25,0,2014,2,1,9,47,32,0
-3f269484-f9cb-443c-9f87-6c0e39745f02,2426,3343.82,Bill Payment,Port Paul,6650.66,1,2011,3,1,13,26,16,0
-47a5b861-e3df-4c37-aec2-a7342ce4136d,1759,3664.63,ATM Transaction,Timothyshire,5928.9,0,2002,10,6,3,14,20,1
-b060f73c-3b86-4c3f-8b7d-afc716eaa21c,2114,463.27,ATM Transaction,Coleport,4922.23,1,1986,7,5,18,19,27,1
-b9adf910-dd1c-4aec-ac07-cefd98e34709,2279,535.46,Online Transaction,Phillipsport,11190.28,1,1996,2,0,5,11,56,0
-c700d1b3-28e6-49e7-93c1-7355faaa28da,1512,2395.76,Bill Payment,North Bradley,1260.45,1,2015,8,6,21,8,1,1
-b873cefe-ba69-48e4-b47d-f0c3c0f300f4,2448,1233.44,Bank Transaction,Tracyland,3040.22,0,1993,5,6,2,55,55,1
-f9024a53-65d2-44da-84de-b7ccba1cb4b1,1700,4478.01,ATM Transaction,Randallhaven,6505.94,1,1974,8,1,9,59,35,0
+transaction_id,user_id,amount,transaction_type,location,account_balance,fraudulent,year,month,day,hour,minute,second,day_of_week,is_weekend
+c5a60b2a-a991-4dee-a822-7d35337bee06,1001,2236.97,ATM Transaction,Wallsshire,17147.52,0,2011,10,15,13,0,48,5,1
+c58ed7b9-ee50-4071-aa4e-ef3fe82c971d,1431,3000.58,Bank Transaction,Port Sallyside,8204.57,1,1990,1,15,14,13,20,0,0
+2a2481bf-3cf7-485f-889b-f4e4e5bb969d,2108,436.22,Online Transaction,Fuentesstad,3245.45,0,1993,5,24,16,9,18,0,0
+ccb1877c-2f5f-4683-92de-8228f0b725ea,1501,3403.44,ATM Transaction,East Anne,4065.53,1,2005,10,23,7,32,50,6,1
+17f7f08b-f2de-4da2-8b5e-3b3f215e26d0,2325,1844.87,Bill Payment,East Madisonshire,1438.32,0,1982,6,17,15,31,55,3,0
+3b217a04-a3e3-4883-a482-d7fffbb014ac,1894,395.26,Bank Transaction,Lake Jessicachester,1448.71,0,1972,9,26,4,17,50,1,0
+a5c7dfd5-66d4-4f3e-9299-d9d355f8dd33,1060,837.13,Online Transaction,Frenchburgh,8797.79,0,2010,12,26,0,14,36,6,1
+d59a5c68-61c5-4147-afe9-883a5a51479a,1915,3421.84,Online Transaction,Joshuaville,19054.59,1,2020,11,7,3,54,7,5,1
+35aa4854-c9c0-48a0-882a-79576864a04a,1873,1233.74,Bill Payment,East Charlesview,3783.21,1,1992,11,20,12,40,24,4,0
+ea1c04a1-9d81-42d0-803a-99c5518bbbb8,1845,3963.23,Bill Payment,East Thomas,18208.44,0,1974,10,7,22,30,38,0,0
+5ac70094-46f8-4edb-b929-07a8042d68f3,2238,22.67,Bank Transaction,North Aliciaport,5544.13,0,1971,5,7,22,58,16,4,0
+a29179c6-ca57-4c89-ab1c-95809e2ea99d,2441,3887.44,ATM Transaction,New Ericton,11645.89,0,1979,8,7,15,6,17,1,0
+2d96692d-1edf-4753-9d85-29d88209f697,1768,3113.23,ATM Transaction,West Amyton,1943.09,0,1974,3,13,11,34,53,2,0
+f989bf7b-396b-4206-a8c5-7a8d91bddca1,1885,911.95,ATM Transaction,Adamfort,3176.13,0,1972,5,18,3,51,57,3,0
+b909386e-3b44-4938-9a17-ae71db9f3aee,1894,1198.91,Bill Payment,North Jonathan,5149.43,0,2007,10,26,4,1,57,4,0
+7de7b833-5cee-49ad-810e-01f685ef7eba,2230,4613.75,Bill Payment,Masonville,8855.84,0,1998,3,26,5,16,50,3,0
+3a5c761c-f32f-4972-bf21-3f468176cfb3,1513,4546.65,ATM Transaction,Reginatown,12805.75,0,1991,1,4,8,3,50,4,0
+efe9707c-edde-4f53-b991-2c1e66ba0363,2126,2488.13,ATM Transaction,Kimberlyhaven,4810.88,1,2006,7,21,18,13,51,4,0
+1863f8fb-8988-4bdc-b511-5583969a4a9c,1404,4091.88,Bill Payment,South Victoriastad,9662.66,0,2003,4,16,11,34,8,2,0
+a3616213-9d86-46e8-956a-0705fa27607f,1714,2984.55,Online Transaction,Nicholsonview,17191.36,0,2015,9,10,7,59,33,3,0
+f49e55b6-a6e8-44b3-8dbd-ae0277dee576,1486,4931.13,ATM Transaction,South Toddborough,9237.21,0,1983,4,7,9,34,12,3,0
+5a2fffa2-41d4-4e18-ab0d-61464462834d,2056,3660.9,ATM Transaction,North Adambury,12666.7,0,1999,7,10,19,36,3,5,1
+1ca45951-ce0f-43d8-8da2-145accce8452,2422,3053.68,Bill Payment,North Alexandratown,16348.75,0,1993,10,3,23,22,40,6,1
+1a1a4737-7985-4df5-a145-d24ab7f167c7,1727,3239.51,Bill Payment,East Stevenstad,9420.82,1,2012,11,14,10,34,14,2,0
+add6b777-320a-432d-8123-5afc8debf2e1,2330,1688.88,Bill Payment,Davistown,14412.71,1,1981,12,27,17,29,53,6,1
+bff5182a-c1f5-432f-99f3-d8a8a12cf722,1195,3935.94,Bank Transaction,East Michelleton,4892.65,0,2009,4,24,10,28,26,4,0
+a8a8e864-7078-40ab-9ed0-e8e9c3c18ef8,1603,3451.16,Online Transaction,Kimmouth,8165.05,1,1998,9,8,23,24,39,1,0
+7628ecaf-8f93-467f-bcb3-668e95ee3cbd,2323,2977.54,Online Transaction,Port Rebecca,1182.69,1,2022,5,27,7,19,22,4,0
+2d5e32bf-8df4-46ed-8daa-32ac116ccdae,1583,52.45,Bill Payment,Carolchester,7908.21,0,2013,9,8,4,57,45,6,1
+88b85376-b3fa-40ff-aa65-685b6f241030,1696,1394.41,Bill Payment,Port Soniaborough,18636.89,0,1982,5,15,3,57,57,5,1
+3f399dab-61a6-4957-9267-fbdd27d33916,2336,2179.65,ATM Transaction,Berryside,11812.04,0,1997,11,5,12,50,10,2,0
+7ffeafde-9f9c-40d8-8e65-c276529dc2cc,1706,4499.3,ATM Transaction,Stevensshire,12502.44,1,2011,12,20,14,29,2,1,0
+07c58273-7675-4971-8df8-24501e6ed785,2165,946.58,Bank Transaction,New Joanneton,5449.05,1,2006,8,7,2,16,28,0,0
+8cecc46e-9fbe-4908-bed6-2dc146886e83,1108,1095.46,Bill Payment,New Christopherberg,15504.32,1,2005,2,18,23,12,28,4,0
+ce470cf0-8755-4946-a709-746f25d17342,1499,4741.71,Online Transaction,Lake Shaneview,16493.08,0,1985,4,30,11,26,33,1,0
+24e3dfce-6bd4-4c06-8351-7fe64c9fce8b,1898,2022.25,ATM Transaction,Marshallstad,513.52,1,1972,7,7,1,52,4,4,0
+9a7e012c-0909-4d99-8eba-6d5d9ac6a41c,2149,3048.96,Bill Payment,Davidton,17473.91,0,2004,4,23,23,48,51,4,0
+5357602b-3e77-4e84-b1d0-59b07b8e2d26,2159,1533.92,Bill Payment,East Emilyport,106.91,0,2007,1,8,20,36,39,0,0
+8ff19d88-3870-4b66-a2b2-85d5f7f1e751,1050,3819.3,Online Transaction,Whiteburgh,13508.43,0,2003,3,11,17,15,0,1,0
+35a26297-e265-426f-968f-41af8b5876a7,1178,677.18,Bill Payment,Barkerview,5328.78,1,1999,9,15,11,28,13,2,0
+881f4ebf-bfbc-4114-812a-7a894f182336,1803,3442.73,Online Transaction,Ortizmouth,19819.7,1,1972,9,19,4,20,30,1,0
+55cc6e9c-878b-4573-a44e-67e3e3a5629a,1566,813.5,Bank Transaction,Changchester,16904.61,0,2001,9,30,20,32,8,6,1
+b3fe2bb4-ce78-4e13-ab2e-452a3a5656c1,2440,4172.51,Online Transaction,South Jessicamouth,7234.87,1,2019,12,5,20,0,33,3,0
+40358b98-9bd6-4d98-8486-86a4a0f9f91f,1839,2214.68,Bank Transaction,Timport,3033.69,1,2006,1,18,21,47,12,2,0
+6948a367-dddb-4cce-a6f4-98c17e666192,1937,1756.82,Bank Transaction,North Codyville,6226.65,1,1996,7,28,19,57,2,6,1
+a8d0fe30-1775-4a67-b5f3-6cd74737508c,1787,62.46,ATM Transaction,Nielsenfurt,7812.36,1,1977,9,22,11,3,28,3,0
+efe1c5f7-13f3-451c-a15a-7c9810279467,1307,1872.15,Bill Payment,Michaelville,16718.62,0,2003,10,17,12,53,16,4,0
+b4551584-0af3-4f5c-a3e8-14aa3f3275e5,2130,3530.98,Bank Transaction,Daviston,6810.57,0,1986,4,4,10,57,59,4,0
+dc21e15e-d977-4d64-963f-6ab44385b3b6,1799,4799.63,ATM Transaction,North Valerie,14649.65,0,2001,11,29,6,12,14,3,0
+e5bde09a-1a81-420b-ae19-8696d0ca79c2,2437,2145.16,Bank Transaction,Lake Laurenton,17808.72,0,2023,2,27,9,12,58,0,0
+047f3fad-7fc5-41aa-9682-c1e89c604aa6,1781,3359.17,Online Transaction,Kennethborough,5587.99,1,2024,4,16,16,34,55,1,0
+12875f4f-83d5-46d6-8a74-3cb9f93b22d4,1753,263.09,Bill Payment,Port Derekside,4525.29,0,2016,1,10,12,36,46,6,1
+1528a58b-317b-449d-bb60-4427ab3119ae,2413,4348.69,Bank Transaction,Port Wendyfort,9836.12,1,2009,3,26,15,20,33,3,0
+a3d6f44f-d32e-4b12-a4d8-b8133c6455d4,1029,2084.67,ATM Transaction,South Jesse,394.26,0,2021,10,15,0,33,50,4,0
+89d29134-2bcc-43a5-9f9f-67ab977858c7,1760,3771.06,Online Transaction,Lake Leah,19157.72,1,2024,5,27,0,15,37,0,0
+4b755374-491d-464c-99df-4040e24d582f,1188,2607.98,Bill Payment,Lake Michaelmouth,1789.2,0,1984,5,25,15,21,7,4,0
+4de3ac01-b6bc-42c6-84b4-46dea83163ef,1760,2095.02,Online Transaction,Port Samuel,4853.0,1,2015,3,26,23,39,19,3,0
+9cad52dd-16ac-4b61-bd8e-efaed4ed33a8,1558,395.05,ATM Transaction,New Joshua,3943.91,0,2008,12,19,21,4,1,4,0
+cad62693-5c38-491a-b5f9-b974510d73fd,1526,2739.29,Bill Payment,Frankbury,8370.52,1,1986,8,12,14,30,35,1,0
+43e5e093-aa6d-4f5a-9d2e-802aa4775ad0,1973,2426.94,Bill Payment,Abigailfort,7833.08,1,1992,6,22,16,27,52,0,0
+99bc10cb-dd5a-4972-8d11-c1f58e207cfa,1342,4098.5,ATM Transaction,New Rebecca,7734.37,1,1986,1,7,2,27,24,1,0
+ce253e5f-b302-452e-bcb6-88d5c2ab0489,1237,1375.25,ATM Transaction,West Stacey,6785.57,0,1984,9,9,13,4,49,6,1
+ca561bb3-838d-4dc6-8ad8-98c9cdb53972,1356,3901.51,Online Transaction,South Dominique,5682.99,0,1979,9,4,18,58,25,1,0
+069a0929-6df6-4593-ac58-a20c3b19ee42,2219,1014.67,Bank Transaction,Lake Edward,6632.35,1,2008,1,14,0,16,46,0,0
+3332bd27-78ca-49b3-ba3e-55343f99f371,2014,2441.27,Bank Transaction,Amyview,14569.43,0,1997,7,29,3,54,22,1,0
+3e78ebfe-169b-426b-8439-ab0d4af69cb0,1608,725.12,Online Transaction,Harveyville,5079.02,1,2012,5,19,20,25,56,5,1
+f64ed3e4-c6c8-4447-bbd8-90e436b03fad,1843,2369.9,Bank Transaction,South Samantha,5464.83,1,2022,5,31,20,47,27,1,0
+4b33c00a-8dd7-4331-ac2a-784877210d62,1467,1322.65,Bill Payment,Michaelview,13684.45,1,2010,8,27,20,33,6,4,0
+93cd72e0-b423-452d-af58-b28598d42900,1748,1229.14,ATM Transaction,Johnchester,2530.36,1,1991,3,11,5,21,25,0,0
+044cd462-0052-4bd8-809b-cd4f136f2b27,1308,1405.08,ATM Transaction,Clarkmouth,11938.46,1,1974,2,3,17,29,28,6,1
+c7fff699-33c0-4566-9218-3efb370d5258,2189,1227.92,Bill Payment,Ericabury,5315.37,1,1979,10,31,5,44,49,2,0
+db102834-f1a6-4203-90f7-eef578324447,1335,4711.86,Bill Payment,Dianestad,14428.67,1,1992,8,31,11,49,53,0,0
+ca39a5a3-791e-47b8-acb7-d0539c3d639c,2211,2200.91,Bill Payment,Paulburgh,14142.79,0,1986,7,23,17,12,52,2,0
+693c3162-36f4-4ff2-8e2a-4f158d81490e,1157,1768.59,Bank Transaction,West Christineburgh,2189.37,0,1981,6,4,20,18,59,3,0
+3e01dc31-ab5d-4ae6-8936-95ce5562a6d4,2361,3731.08,Bank Transaction,Anthonyshire,12589.19,1,2009,12,18,22,9,31,4,0
+5f0ac497-7095-4055-93ba-9b475237fe4f,1541,1648.64,Bill Payment,Dustinhaven,13908.7,0,1992,11,3,7,3,20,1,0
+9ee9e914-2eba-4e6d-aad3-a7d960de8ff1,2421,3125.67,Bill Payment,East Carmenside,5985.49,0,2024,9,1,19,6,48,6,1
+1144ce4f-8155-4c83-a5a2-151d728e0f3c,2204,949.09,ATM Transaction,Cruzfurt,14475.79,1,1974,3,6,16,31,53,2,0
+03419c39-5d39-4756-ae5e-c93a8f420ba5,2208,761.68,Online Transaction,East Melanie,14004.83,1,1998,12,28,11,55,3,0,0
+4fb78e05-3bc1-42e6-b4e0-6cd7002d24ba,1296,1264.65,Online Transaction,Barryfurt,16668.96,0,1976,1,19,12,28,42,0,0
+c0d0db03-ec25-44fa-ab93-27175ab114f4,2091,3151.91,Bill Payment,Davisville,749.69,1,2014,2,13,7,50,56,3,0
+ec81b71b-ee81-4720-bf02-15ccf70195a8,2256,78.74,Online Transaction,New Ashleyfurt,11395.44,0,2021,4,3,4,40,59,5,1
+1b614bab-5694-4cb4-a2ea-b0c3bfb44c5b,1264,3693.47,Bill Payment,South Chelseahaven,2333.41,0,2010,10,13,5,49,50,2,0
+fd3c39e8-9cda-45bb-a750-330535557b78,2434,4136.58,Bill Payment,Watkinsbury,15302.0,0,2004,8,4,19,33,56,2,0
+fd29876b-cc0d-4e42-904a-6763c30db333,1125,4175.83,Online Transaction,Williamshaven,2163.76,1,2023,3,6,9,13,39,0,0
+4b697c0a-0bfb-4c3a-8984-e1496b9b99c1,2435,858.75,ATM Transaction,East Daniel,8203.6,1,2008,2,29,17,36,46,4,0
+5e71c08f-0cc8-4bbe-84f5-7b3a89a82c14,2413,2636.48,ATM Transaction,South Debbiebury,19404.48,0,2022,3,5,22,41,54,5,1
+a9fc32f6-d877-4485-9368-2737ec577726,1433,77.04,Online Transaction,East William,8874.96,1,1998,11,18,2,49,19,2,0
+9da78369-e1a7-4615-a155-91da120ad01c,2312,4297.5,Bill Payment,Autumnmouth,5738.74,1,2000,7,16,11,9,12,6,1
+2f2a8f30-4a3f-4faf-b831-f0ac7db592a6,1815,1130.39,Bill Payment,North Kyle,1669.65,1,1978,9,5,9,2,1,1,0
+3b971888-d826-419e-9e3f-26052a77a502,1161,2262.51,Online Transaction,Tonyabury,4242.2,0,2003,7,7,11,38,20,0,0
+93ec6724-4738-4d58-ab8d-28a88d7443cb,1311,1577.58,Online Transaction,Port Deannaton,2455.24,1,1992,10,28,3,0,19,2,0
+fef16b35-51d5-41f5-88de-e130a78346eb,1339,680.33,Online Transaction,Fernandezshire,16701.33,0,1989,8,3,3,52,29,3,0
+ca64e824-1d3b-4d2f-a6fb-22b982cce844,1815,3735.66,Bank Transaction,Jackborough,9664.2,0,2001,2,4,8,54,35,6,1
+db68ade9-aed5-4c1f-93c3-d15b7ba5f006,1174,604.32,Bill Payment,Lake Craigshire,7405.36,0,2000,2,10,20,26,28,3,0
+5022d7ab-5ab9-4814-85f9-50f7e04a6d64,1071,1070.14,Online Transaction,Brewerview,10528.4,1,1987,6,16,12,26,11,1,0
+dd486dea-7780-47e6-8842-236f20086f4b,2375,2123.25,ATM Transaction,South Tammy,18316.81,0,1975,4,25,18,59,42,4,0
+48e4947a-e1db-4ee1-a5c0-262b7328a3bb,1033,4491.82,Online Transaction,New Jo,8295.67,1,2013,1,1,17,45,29,1,0
+a08ebd7e-28e9-401b-9a80-aed392cc8599,1723,3350.15,Bill Payment,Harveymouth,7978.16,0,1999,5,17,15,51,47,0,0
+abd14c0d-9ba2-4893-af9b-605f8f7b7f30,2449,65.86,Bank Transaction,North Nicholasstad,7650.76,1,2011,12,10,18,32,49,5,1
