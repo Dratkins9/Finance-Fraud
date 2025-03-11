@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 fake = Faker()
-num_transactions = 100
+num_transactions = 500
 data = []
 
 for _ in range(num_transactions):
