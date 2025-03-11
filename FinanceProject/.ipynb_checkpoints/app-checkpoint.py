@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # 🔐 Hash passwords correctly
-hashed_passwords = stauth.Hasher().hash(["password123", "userpass"])
+hashed_passwords = stauth.Hasher(["password123", "userpass"]).generate()
 
 # 🛠️ Config for authentication
 config = {
@@ -47,50 +47,56 @@ authenticator = stauth.Authenticate(
 )
 
 # 🔓 Login
-login_result = authenticator.login(location="main")
+name, authentication_status, username = authenticator.login(location="main")
 
-if login_result is not None:
-    name, authentication_status, username = login_result  
+if authentication_status:
+    st.success(f"Welcome *{name}*!")
+    authenticator.logout("Logout", "sidebar")
 
-    if authentication_status:
-        st.success(f"Welcome *{name}*!")
-        authenticator.logout("Logout", "sidebar")
+    # ✅ Now prompt user to upload a CSV file
+    uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+    
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
 
-        # ✅ Now prompt user to upload a CSV file
-        uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-        
-        if uploaded_file is not None:
-            df = pd.read_csv(uploaded_file)
+        st.write("✅ CSV successfully uploaded! Here's a preview:")
+        st.write(df.head())
 
-            st.write("✅ CSV successfully uploaded! Here's a preview:")
-            st.write(df.head())
+        # ✅ Ensure the correct feature columns exist
+        feature_columns = ["amount", "transaction_type", "account_balance", "year", "month", "day", "hour", "minute", "second", "day_of_week", "is_weekend"]
 
-            # ✅ Ensure the correct feature columns exist
-            feature_columns = ["amount", "transaction_type", "account_balance", "year", "month", "day", "hour", "minute", "second", "day_of_week", "is_weekend"]
+        if all(col in df.columns for col in feature_columns):
+            # 🔢 Process dataset
+            X = df[feature_columns].copy()
+            X = pd.get_dummies(X, columns=["transaction_type"], drop_first=True)
 
-            if all(col in df.columns for col in feature_columns):
-                # 🔢 Process dataset
-                X = df[feature_columns].copy()
-                X = pd.get_dummies(X, columns=["transaction_type"], drop_first=True)
+            y = df["fraudulent"]
 
-                y = df["fraudulent"]
+            # 🏋️ Train/test split
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-                # 🏋️ Train/test split
-                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+            # 🌲 Train Random Forest model
+            model = RandomForestClassifier(n_estimators=100, random_state=42)
+            model.fit(X_train, y_train)
 
-                # 🌲 Train Random Forest model
-                model = RandomForestClassifier(n_estimators=100, random_state=42)
-                model.fit(X_train, y_train)
+            # 🧐 Predictions & accuracy
+            y_pred = model.predict(X_test)
+            accuracy = accuracy_score(y_test, y_pred)
+            classification_rep = classification_report(y_test, y_pred)
 
-                # 🧐 Predictions & accuracy
-                y_pred = model.predict(X_test)
-                accuracy = accuracy_score(y_test, y_pred)
-                classification_rep = classification_report(y_test, y_pred)
+            st.write(f"✅ Model training completed! Accuracy: {accuracy:.2f}")
+            st.text("📊 Classification Report:")
+            st.text(classification_rep)
 
-                st.write(f"✅ Model training completed! Accuracy: {accuracy:.2f}")
-                st.text("📊 Classification Report:")
-                st.text(classification_rep)
+        else:
+            missing_columns = [col for col in feature_columns if col not in df.columns]  # ✅ Fixed bracket issue here
+            st.error(f"⚠️ Missing required columns: {missing_columns}. Please upload a correct dataset.")
 
-            else:
-                missing_columns = [col for col in feature_columns if col not 
+elif authentication_status is False:
+    st.error("❌ Incorrect username/password. Try again.")
+elif authentication_status is None:
+    st.warning("⚠️ Please enter your username and password.")
+
+else:
+    st.error("⚠️ Authentication system error.")
 
