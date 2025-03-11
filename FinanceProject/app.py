@@ -13,7 +13,8 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # ✅ Corrected password hashing
 passwords = ["password123", "userpass"]
-hashed_passwords = stauth.Hasher(passwords).generate()
+hasher = stauth.Hasher(passwords)
+hashed_passwords = hasher.generate()
 
 # ✅ Authentication Configuration
 config = {
@@ -109,5 +110,3 @@ if authentication_status:
 
 else:
     st.warning("Please log in to access the system.")
-
-
