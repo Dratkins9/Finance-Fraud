@@ -12,8 +12,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# 🔐 Hash passwords correctly
-hashed_passwords = stauth.Hasher(["password123", "userpass"]).generate()
+# 🔐 Correct hashing for passwords
+hashed_passwords = [stauth.Hasher([pwd]).generate()[0] for pwd in ["password123", "userpass"]]
 
 # 🛠️ Config for authentication
 config = {
@@ -99,4 +99,3 @@ elif authentication_status is None:
 
 else:
     st.error("⚠️ Authentication system error.")
-
