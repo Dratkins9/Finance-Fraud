@@ -5,15 +5,15 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 import seaborn as sns
-from faker import Faker  
+from faker import Faker
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ✅ Initialize Faker for Fake Data
+# Initialize Faker for Fake Data
 fake = Faker()
 
-# ✅ Create Fake Transaction Data
+# Create Fake Transaction Data
 num_transactions = 100
 data = []
 for _ in range(num_transactions):
@@ -25,7 +25,7 @@ for _ in range(num_transactions):
         "timestamp": fake.date_time(),
         "location": fake.city(),
         "account_balance": round(random.uniform(100, 20000), 2),
-        "fraudulent": random.choice([0, 1])  
+        "fraudulent": random.choice([0, 1])
     }
     data.append(transaction)
 
@@ -34,19 +34,18 @@ df["timestamp"] = pd.to_datetime(df["timestamp"])
 df["year"] = df["timestamp"].dt.year
 df["month"] = df["timestamp"].dt.month
 df["day"] = df["timestamp"].dt.day
-df["hour"] = df["timestamp"].dt.hour  
+df["hour"] = df["timestamp"].dt.hour
 df["minute"] = df["timestamp"].dt.minute
 df["second"] = df["timestamp"].dt.second
 df["day_of_week"] = df["timestamp"].dt.weekday
-df["is_weekend"] = df["day_of_week"].apply(lambda x: 1 if x >= 5 else 0) 
+df["is_weekend"] = df["day_of_week"].apply(lambda x: 1 if x >= 5 else 0)
 df.drop(columns=["timestamp"], inplace=True)
 df.to_csv("fake_transactions.csv", index=False)
 
-# ✅ Hasher Initialization
-hasher = stauth.Hasher()
-hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
+# Hasher Initialization
+hashed_passwords = stauth.Hasher(['password123', 'userpass']).generate()
 
-# ✅ Authentication Config
+# Authentication Config
 config = {
     'credentials': {
         'usernames': {
@@ -66,42 +65,39 @@ config = {
         'expiry_days': 30,
         'key': 'random_secret_key',
         'name': 'auth_cookie'
-    }
+    },
+    'preauthorized': None
 }
 
-# ✅ Initialize Authenticator
+# Initialize Authenticator
 authenticator = stauth.Authenticate(
-    credentials=config['credentials'],
-    cookie_name=config['cookie']['name'],
-    key=config['cookie']['key'],
-    cookie_expiry_days=config['cookie']['expiry_days']
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days']
 )
 
-# ✅ Function to Force Page Refresh on Login
-def rerun(data=None):
-    """Forces Streamlit to refresh after login."""
-    st.rerun()
-
-# ✅ Function to Handle Login
+# Login Function
 def login():
-    """Login Screen"""
     st.title("🔐 Login to Your Account")
     st.write("Please enter your username and password.")
-
-    authentication_status = authenticator.login(callback=rerun)
-
+    
+    # Render login form and get authentication status
+    name, authentication_status, username = authenticator.login('Login', 'main')
+    
     if authentication_status:
+        # Successful login
+        st.session_state["authentication_status"] = True
+        st.session_state["username"] = username
         st.session_state["page"] = "main"
-        st.session_state["username"] = authenticator.username  
-        st.experimental_rerun()  # ✅ Force UI refresh
+        st.rerun()  # Rerun to switch to main page
     elif authentication_status is False:
         st.error("❌ Incorrect username or password!")
     elif authentication_status is None:
         st.warning("⚠️ Please enter your credentials.")
 
-# ✅ Function to Handle Main Application
+# Main Application Function
 def main():
-    """Main Screen after Login"""
     st.sidebar.title("📌 Menu")
     st.sidebar.write(f"👋 Welcome, **{st.session_state['username']}**!")
     authenticator.logout("🚪 Logout", "sidebar")
@@ -114,7 +110,7 @@ def main():
         st.write("### 🔍 Preview of Uploaded Data:")
         st.write(df.head())
 
-        # ✅ Fraud detection processing
+        # Fraud detection processing
         if "fraudulent" in df.columns:
             st.write("### 🔎 Processing Fraud Detection...")
 
@@ -140,14 +136,10 @@ def main():
                     X = pd.get_dummies(X, columns=["transaction_type"], drop_first=True)
 
                 y = df["fraudulent"]
-
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
                 model = RandomForestClassifier(n_estimators=100, random_state=42)
                 model.fit(X_train, y_train)
-
                 y_pred = model.predict(X_test)
-
                 accuracy = accuracy_score(y_test, y_pred)
                 classification_rep = classification_report(y_test, y_pred)
 
@@ -160,11 +152,16 @@ def main():
     else:
         st.warning("⚠️ Please upload a CSV file to proceed.")
 
-# ✅ Handle Page Navigation
+# Page Navigation Logic
 if "page" not in st.session_state:
     st.session_state["page"] = "login"
+    st.session_state["authentication_status"] = False
 
 if st.session_state["page"] == "login":
     login()
-elif st.session_state["page"] == "main":
+elif st.session_state["page"] == "main" and st.session_state["authentication_status"]:
     main()
+else:
+    st.error("Session expired or invalid. Please log in again.")
+    st.session_state["page"] = "login"
+    st.rerun()
