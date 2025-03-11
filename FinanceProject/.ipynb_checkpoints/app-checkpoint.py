@@ -13,8 +13,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # ✅ Fix Hasher Initialization
-hasher = stauth.Hasher()
-hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
+hasher = stauth.Hasher(["password123", "userpass"])
+hashed_passwords = hasher.generate()
 
 # ✅ Authentication Config
 config = {
@@ -49,15 +49,13 @@ authenticator = stauth.Authenticate(
 
 # ✅ Place Login Form in Sidebar
 with st.sidebar:
-    name, authentication_status, username = authenticator.login()
+    authentication_status = authenticator.login()
 
 # ✅ Authentication Handling
 if authentication_status:
+    name = authenticator.get_username()
     st.sidebar.write(f"Welcome, *{name}*!")
     authenticator.logout("Logout", "sidebar")
-
-    # ✅ Force UI refresh after login
-    st.experimental_rerun()
 
     # ✅ File Upload UI
     st.write("## Upload Your CSV File for Analysis")
