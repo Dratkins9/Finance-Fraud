@@ -49,14 +49,23 @@ authenticator = stauth.Authenticate(
 
 # ✅ Place Login Form in Sidebar
 with st.sidebar:
-    authentication_status = authenticator.login()
+    name, authentication_status, username = authenticator.login()
 
 # ✅ Authentication Handling
 if authentication_status:
-    name = authenticator.get_username()
     st.sidebar.write(f"Welcome, *{name}*!")
     authenticator.logout("Logout", "sidebar")
+    
+    # ✅ Refresh UI to remove login message
+    st.experimental_rerun()
 
+elif authentication_status is False:
+    st.error("Username/password is incorrect")
+elif authentication_status is None:
+    st.warning("Please enter your username and password")
+
+# ✅ Show File Upload ONLY if Logged In
+if authentication_status:
     # ✅ File Upload UI
     st.write("## Upload Your CSV File for Analysis")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
@@ -111,8 +120,3 @@ if authentication_status:
                 st.error(f"Missing columns: {missing_columns}. Please upload a valid dataset.")
     else:
         st.warning("Please upload a CSV file to proceed.")
-
-elif authentication_status is False:
-    st.error("Username/password is incorrect")
-elif authentication_status is None:
-    st.warning("Please enter your username and password")
