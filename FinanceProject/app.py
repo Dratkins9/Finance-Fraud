@@ -10,10 +10,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
-# ✅ Initialize Faker for Fake Data
 fake = Faker()
 
-# ✅ Create Fake Transaction Data
 num_transactions = 100
 data = []
 for _ in range(num_transactions):
@@ -42,11 +40,9 @@ df["is_weekend"] = df["day_of_week"].apply(lambda x: 1 if x >= 5 else 0)
 df.drop(columns=["timestamp"], inplace=True)
 df.to_csv("fake_transactions.csv", index=False)
 
-# ✅ Hasher Initialization
 hasher = stauth.Hasher()
 hashed_passwords = [hasher.hash("password123"), hasher.hash("userpass")]
 
-# ✅ Authentication Config
 config = {
     'credentials': {
         'usernames': {
@@ -69,7 +65,6 @@ config = {
     }
 }
 
-# ✅ Initialize Authenticator
 authenticator = stauth.Authenticate(
     credentials=config['credentials'],
     cookie_name=config['cookie']['name'],
@@ -77,15 +72,13 @@ authenticator = stauth.Authenticate(
     cookie_expiry_days=config['cookie']['expiry_days']
 )
 
-# ✅ Function to Force Page Refresh on Login
 def rerun(data=None):
     """Forces Streamlit to refresh after login."""
     st.rerun()
 
-# ✅ Function to Handle Login
 def login():
     """Login Screen"""
-    st.title("🔐 Login to Your Account")
+    st.title("Login to Your Account")
     st.write("Please enter your username and password.")
 
     authentication_status = authenticator.login(callback=rerun)
@@ -93,30 +86,28 @@ def login():
     if authentication_status:
         st.session_state["page"] = "main"
         st.session_state["username"] = authenticator.username  
-        st.experimental_rerun()  # ✅ Force UI refresh
+        st.experimental_rerun()  
     elif authentication_status is False:
-        st.error("❌ Incorrect username or password!")
+        st.error("Incorrect username or password!")
     elif authentication_status is None:
-        st.warning("⚠️ Please enter your credentials.")
+        st.warning("Please enter your credentials.")
 
-# ✅ Function to Handle Main Application
 def main():
     """Main Screen after Login"""
-    st.sidebar.title("📌 Menu")
-    st.sidebar.write(f"👋 Welcome, **{st.session_state['username']}**!")
-    authenticator.logout("🚪 Logout", "sidebar")
+    st.sidebar.title("Menu")
+    st.sidebar.write(f"Welcome, **{st.session_state['username']}**!")
+    authenticator.logout("Logout", "sidebar")
 
-    st.title("📊 Upload Your CSV File for Analysis")
-    uploaded_file = st.file_uploader("📂 Choose a CSV file", type=["csv"])
+    st.title("Upload Your CSV File for Analysis")
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
 
     if uploaded_file:
         df = pd.read_csv(uploaded_file)
-        st.write("### 🔍 Preview of Uploaded Data:")
+        st.write("### Preview of Uploaded Data:")
         st.write(df.head())
 
-        # ✅ Fraud detection processing
         if "fraudulent" in df.columns:
-            st.write("### 🔎 Processing Fraud Detection...")
+            st.write("### Processing Fraud Detection...")
 
             if "timestamp" in df.columns:
                 df["timestamp"] = pd.to_datetime(df["timestamp"])
@@ -151,16 +142,15 @@ def main():
                 accuracy = accuracy_score(y_test, y_pred)
                 classification_rep = classification_report(y_test, y_pred)
 
-                st.write(f"### ✅ Model Training Completed! Accuracy: **{accuracy:.2f}**")
-                st.text("### 📄 Classification Report:")
+                st.write(f"### Model Training Completed! Accuracy: **{accuracy:.2f}**")
+                st.text("### Classification Report:")
                 st.text(classification_rep)
             else:
                 missing_columns = [col for col in feature_columns if col not in df.columns]
-                st.error(f"⚠️ Missing columns: {missing_columns}. Please upload a valid dataset.")
+                st.error(f"⚠Missing columns: {missing_columns}. Please upload a valid dataset.")
     else:
-        st.warning("⚠️ Please upload a CSV file to proceed.")
+        st.warning("Please upload a CSV file to proceed.")
 
-# ✅ Handle Page Navigation
 if "page" not in st.session_state:
     st.session_state["page"] = "login"
 
