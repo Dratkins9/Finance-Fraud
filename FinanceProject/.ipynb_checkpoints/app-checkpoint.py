@@ -67,26 +67,27 @@ config = {
         'key': 'random_secret_key',
         'name': 'auth_cookie'
     },
-    'preauthorized': {
-        'emails': []  # Empty list instead of None
+    'pre-authorized': {  # Note: This is not passed to Authenticate, but kept for register_user
+        'emails': []
     }
 }
 
 # Debug: Print the config to verify
 st.write("Debug: Config =", config)
 
-# Initialize Authenticator
+# Initialize Authenticator (Fixed)
 try:
     authenticator = stauth.Authenticate(
         config['credentials'],
         config['cookie']['name'],
         config['cookie']['key'],
-        config['cookie']['expiry_days'],
-        config['preauthorized']
+        config['cookie']['expiry_days']
+        # Removed pre_authorized parameter as per updated API
     )
     st.write("Debug: Authenticator initialized successfully")
 except Exception as e:
     st.error(f"❌ Error initializing authenticator: {e}")
+    st.stop()
 
 # Login Function (Fixed)
 def login():
@@ -94,21 +95,25 @@ def login():
     st.write("Please enter your username and password.")
     
     # Render login form (for streamlit-authenticator >= 0.3.0)
-    login_result = authenticator.login(
-        fields={
-            'Form name': 'Login',
-            'Username': 'Username',
-            'Password': 'Password',
-            'Login': 'Login'
-        }
-    )
+    try:
+        login_result = authenticator.login(
+            fields={
+                'Form name': 'Login',
+                'Username': 'Username',
+                'Password': 'Password',
+                'Login': 'Login'
+            }
+        )
+    except Exception as e:
+        st.error(f"❌ Error rendering login form: {e}")
+        st.stop()
     
     # Debug: Check the return value of authenticator.login()
     st.write("Debug: login_result =", login_result)
     
     if login_result is None:
-        st.error("❌ Login form failed to render. Please check your streamlit-authenticator version and configuration.")
-        return
+        st.error("❌ Login form failed to render. Please ensure you are using the latest version of streamlit-authenticator and Streamlit.")
+        st.stop()
     
     # Unpack the result
     name, authentication_status, username = login_result
